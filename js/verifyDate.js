@@ -3,7 +3,7 @@
  * (date) YYYY-MM-DD
  */
 
-function cheakBirthDay (date) {
+function verifyDate (date) {
   var birthday = date.split("-");
   var year = Number(birthday[0]);
   var month = Number(birthday[1]);
