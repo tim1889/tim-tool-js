@@ -26,3 +26,9 @@ deepClone(obj);
 ```js
 getUrlParam(name);
 ```
+
+## 验证日期
+
+```js
+verifyDate(date)
+```
