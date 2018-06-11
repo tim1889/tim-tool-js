@@ -3,7 +3,8 @@ var verify = {
   phone: regVerify(/^[0-9]{11}$/),
   email: regVerify(/^\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$/),
   amout: regVerify(/^\d+\.?\d{0,2}$/),
-  IDcard: checkCertificatesNo,
+  idCard: checkCertificatesNo,
+  date: cheackDate,
 }
 
 function regVerify (reg) {
@@ -13,27 +14,6 @@ function regVerify (reg) {
       errorMessage: reg.test(val) ? '匹配' : '不匹配'
     }
   }
-};
-
-function checkCertificatesNo (value){
-  var msg = {
-    gender: Number(value.substr(16, 1)) % 2 == 0 ? 'male' : 'female', //获取性别
-    birDate: value.substr(6, 8).replace(/(.{4})(.{2})/, "$1-$2-"), //获取生日信息
-    success: true,
-    errorMsg: '',
-  }; 
-  var birthVerify = cheackDate(msg.birDate);
-  var parity = checkParity(value);
-
-  if (!birthVerify.success) { //身份证日期
-    msg.success = false;
-    msg.errorMsg = '身份证' + birthVerify.errorMsg;
-  } else if (!parity) { //身份证校验位验证
-    msg.success = false;
-    msg.errorMsg = '身份证校验位不正确';
-  }
-  
-  return msg;
 };
 
 function cheackDate (date) {
@@ -79,6 +59,27 @@ function cheackDate (date) {
 
   return msg;
 }
+
+function checkCertificatesNo (value){
+  var msg = {
+    gender: Number(value.substr(16, 1)) % 2 == 0 ? 'male' : 'female', //获取性别
+    birDate: value.substr(6, 8).replace(/(.{4})(.{2})/, "$1-$2-"), //获取生日信息
+    success: true,
+    errorMsg: '',
+  }; 
+  var birthVerify = cheackDate(msg.birDate);
+  var parity = checkParity(value);
+
+  if (!birthVerify.success) { //身份证日期
+    msg.success = false;
+    msg.errorMsg = '身份证' + birthVerify.errorMsg;
+  } else if (!parity) { //身份证校验位验证
+    msg.success = false;
+    msg.errorMsg = '身份证校验位不正确';
+  }
+  
+  return msg;
+};
 
 function checkParity(card) {
   var arrInt = new Array(7, 9, 10, 5, 8, 4, 2, 1, 6, 3, 7, 9, 10, 5, 8, 4, 2);

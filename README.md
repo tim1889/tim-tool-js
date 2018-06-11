@@ -27,8 +27,18 @@ deepClone(obj);
 getUrlParam(name);
 ```
 
-## 验证日期
+## 验证
 
-```js
-verifyDate(date)
-```
+* 自定义正则验证 `regVerify(reg)`
+
+* 验证正整数： `verify.number(value)`
+
+* 验证电话号码： `verify.phone(val)`
+
+* 验证电子邮件： `verify.email(val)`
+
+* 验证身份证： `verify.idCard(val)`
+
+* 验证日期： `verify.date(val)`
+
+* 验证保留两位小数的金额： `verify.amout(val)`
