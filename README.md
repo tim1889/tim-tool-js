@@ -20,3 +20,9 @@ setDateRange(rangeType);
 ```js
 deepClone(obj);
 ```
+
+## 获取 url 参数
+
+```js
+getUrlParam(name);
+```
