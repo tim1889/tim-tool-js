@@ -42,3 +42,4 @@ getUrlParam(name);
 * 验证日期： `verify.date(val)`
 
 * 验证保留两位小数的金额： `verify.amout(val)`
+
