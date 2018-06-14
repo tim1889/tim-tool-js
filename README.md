@@ -27,7 +27,7 @@ deepClone(obj);
 getUrlParam(name);
 ```
 
-## 验证啊
+## 验证
 
 * 自定义正则验证 `regVerify(reg)`
 
